@@ -1,5 +1,5 @@
 {% set name = "voila-material" %}
-{% set version = "0.2.5" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 98aa316eb1ba2d1c26389f5890fbdf6ddc8ad4a617e5b580189d47de13805e13
+  sha256: 05a86ad2bf0a9b1004ab260d9c90494f6b6e7c6fb198a0e952bf76708ee6f485
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -33,7 +33,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: 'Material template for Voila'
+  summary: Material template for Voila
   dev_url: https://github.com/voila-dashboards/voila-material
 
 extra:
