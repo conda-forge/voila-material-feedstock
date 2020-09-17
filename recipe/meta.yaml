@@ -24,9 +24,14 @@ requirements:
 
 test:
   commands:
-    - test -d ${PREFIX}/share/jupyter/voila/templates/material  # [unix]
-    - test -f ${PREFIX}/share/jupyter/voila/templates/material/nbconvert_templates/voila.tpl  # [unix]
-    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\nbconvert_templates\\voila.tpl (exit 0) else (exit 1)  # [win]
+    - test -d ${PREFIX}/share/jupyter/nbconvert/templates/material/index.html.j2  # [unix]
+    - test -d ${PREFIX}/share/jupyter/nbconvert/templates/material/conf.json  # [unix]
+    - test -f ${PREFIX}/share/jupyter/voila/templates/material/index.html.j2  # [unix]
+    - test -f ${PREFIX}/share/jupyter/voila/templates/material/base.html  # [unix]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\conf.json (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\base.html (exit 0) else (exit 1)  # [win]
 
 about:
   home: https://github.com/voila-dashboards/voila-material
