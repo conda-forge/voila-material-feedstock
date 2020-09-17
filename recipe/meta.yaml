@@ -1,5 +1,5 @@
 {% set name = "voila-material" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 05a86ad2bf0a9b1004ab260d9c90494f6b6e7c6fb198a0e952bf76708ee6f485
+  sha256: 0827a27f0f23ca87bd8f565c4c227c754516d2a120ffce0f7ab1ee12fdec959f
 
 build:
   number: 0
@@ -24,9 +24,14 @@ requirements:
 
 test:
   commands:
-    - test -d ${PREFIX}/share/jupyter/voila/templates/material  # [unix]
-    - test -f ${PREFIX}/share/jupyter/voila/templates/material/nbconvert_templates/voila.tpl  # [unix]
-    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\nbconvert_templates\\voila.tpl (exit 0) else (exit 1)  # [win]
+    - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/index.html.j2  # [unix]
+    - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/conf.json  # [unix]
+    - test -f ${PREFIX}/share/jupyter/voila/templates/material/index.html.j2  # [unix]
+    - test -f ${PREFIX}/share/jupyter/voila/templates/material/base.html  # [unix]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\conf.json (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
+    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\base.html (exit 0) else (exit 1)  # [win]
 
 about:
   home: https://github.com/voila-dashboards/voila-material
@@ -39,3 +44,4 @@ about:
 extra:
   recipe-maintainers:
     - martinRenou
+    - maartenbreddels

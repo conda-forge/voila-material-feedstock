@@ -5,7 +5,7 @@ Home: https://github.com/voila-dashboards/voila-material
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Material template for Voila
 
