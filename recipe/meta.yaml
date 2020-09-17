@@ -24,8 +24,8 @@ requirements:
 
 test:
   commands:
-    - test -d ${PREFIX}/share/jupyter/nbconvert/templates/material/index.html.j2  # [unix]
-    - test -d ${PREFIX}/share/jupyter/nbconvert/templates/material/conf.json  # [unix]
+    - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/index.html.j2  # [unix]
+    - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/conf.json  # [unix]
     - test -f ${PREFIX}/share/jupyter/voila/templates/material/index.html.j2  # [unix]
     - test -f ${PREFIX}/share/jupyter/voila/templates/material/base.html  # [unix]
     - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
