@@ -10,7 +10,7 @@ source:
   sha256: 0827a27f0f23ca87bd8f565c4c227c754516d2a120ffce0f7ab1ee12fdec959f
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >3
-    - voila >=0.1.12,<0.2
+    - voila >=0.2,<0.3
 
 test:
   commands:
@@ -28,10 +28,10 @@ test:
     - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/conf.json  # [unix]
     - test -f ${PREFIX}/share/jupyter/voila/templates/material/index.html.j2  # [unix]
     - test -f ${PREFIX}/share/jupyter/voila/templates/material/base.html  # [unix]
-    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
-    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\conf.json (exit 0) else (exit 1)  # [win]
-    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\index.html.j2 (exit 0) else (exit 1)  # [win]
-    - if exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\base.html (exit 0) else (exit 1)  # [win]
+    - if not exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\index.html.j2 exit 1  # [win]
+    - if not exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\nbconvert\\templates\\material\\conf.json exit 1  # [win]
+    - if not exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\index.html.j2 exit 1  # [win]
+    - if not exist %LIBRARY_PREFIX%\\..\\share\\jupyter\\voila\\templates\\material\\base.html exit 1  # [win]
 
 about:
   home: https://github.com/voila-dashboards/voila-material
