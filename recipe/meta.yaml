@@ -10,7 +10,7 @@ source:
   sha256: 0827a27f0f23ca87bd8f565c4c227c754516d2a120ffce0f7ab1ee12fdec959f
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >3
-    - voila >=0.2,<0.3
+    - voila >=0.2,<0.4
 
 test:
   commands:
