@@ -1,5 +1,5 @@
 {% set name = "voila-material" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0827a27f0f23ca87bd8f565c4c227c754516d2a120ffce0f7ab1ee12fdec959f
+  sha256: 2c8f41dce2459c194b8cbf6e02a59e65162788659ff8d6fb779d3390b2cd850a
 
 build:
-  number: 2
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -20,7 +20,7 @@ requirements:
     - pip
   run:
     - python >3
-    - voila >=0.2,<0.4
+    - voila >=0.2,<0.5
 
 test:
   commands:
