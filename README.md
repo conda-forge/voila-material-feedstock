@@ -1,11 +1,11 @@
-About voila-material
-====================
+About voila-material-feedstock
+==============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/voila-material-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/voila-dashboards/voila-material
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/voila-material-feedstock/blob/main/LICENSE.txt)
 
 Summary: Material template for Voila
 
