@@ -6,23 +6,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 9552590e5a5a961b8aa4784683e97528efe2feae4b014637a5064c74ceaf150d
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >3
+    - python {{ python_min }}
     - pip
   run:
-    - python >3
+    - python >={{ python_min }}
     - voila >=0.2,<0.5
 
 test:
+  requires:
+    - python {{ python_min }}
   commands:
     - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/index.html.j2  # [unix]
     - test -f ${PREFIX}/share/jupyter/nbconvert/templates/material/conf.json  # [unix]
